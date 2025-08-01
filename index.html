@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalFit - Tu Transformación Comienza Aquí</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #059669, #10B981);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(to right, #8B5CF6, #A78BFA);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-15px);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .progress-ring {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(to right, #059669, #10B981);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-button:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 15px 30px rgba(5, 150, 105, 0.4);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .animate-pop {
+            animation: pop 0.3s ease;
+        }
+        
+        @keyframes pop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .payment-method {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .payment-method:hover {
+            border-color: #10B981;
+            transform: translateY(-5px);
+        }
+        
+        .payment-method.selected {
+            border-color: #10B981;
+            background-color: #f0fdf4;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+        }
+        
+        .payment-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 12px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="text-3xl mr-2">
+                        <i class="fas fa-heart-pulse text-green-600"></i>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">VitalFit</h1>
+                </div>
+                
+                <div class="flex-1 mx-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Buscar programas, dietas, ejercicios..." class="w-full py-2 px-4 pr-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 hover:text-green-600 transition duration-300 font-semibold">
+                        <i class="far fa-user text-lg"></i> Iniciar Sesión
+                    </button>
+                    <button class="btn-primary flex items-center">
+                        <i class="fas fa-dumbbell mr-2"></i> ¡Comenzar!
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="bg-gradient-to-r from-green-600 to-emerald-600 text-white">
+            <div class="container mx-auto px-4">
+                <ul class="flex flex-wrap justify-center space-x-1">
+                    <li><a href="#inicio" class="block py-3 px-4 hover:bg-green-700 transition duration-300 rounded-t-lg">Inicio</a></li>
+                    <li><a href="#programas" class="block py-3 px-4 hover:bg-green-700 transition duration-300 rounded-t-lg">Programas</a></li>
+                    <li><a href="#dietas" class="block py-3 px-4 hover:bg-green-700 transition duration-300 rounded-t-lg">Dietas</a></li>
+                    <li><a href="#entrenamientos" class="block py-3 px-4 hover:bg-green-700 transition duration-300 rounded-t-lg">Entrenamientos</a></li>
+                    <li><a href="#precios" class="block py-3 px-4 hover:bg-green-700 transition duration-300 rounded-t-lg">Precios</a></li>
+                    <li><a href="#testimonios" class="block py-3 px-4 hover:bg-green-700 transition duration-300 rounded-t-lg">Testimonios</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <span class="badge bg-white text-green-600">¡NUEVO PROGRAMA DISPONIBLE!</span>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Transforma tu Vida con VitalFit</h1>
+                    <p class="text-xl mb-8 opacity-90">Programas personalizados de fitness, nutrición y bienestar para alcanzar tus metas de salud</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="btn-primary flex items-center justify-center">
+                            <i class="fas fa-play-circle mr-2"></i> Ver Demo
+                        </button>
+                        <button class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-green-600 transition duration-300 font-semibold">
+                            <i class="fas fa-info-circle mr-2"></i> Más Información
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Transformación+Fitness" alt="Transformación Fitness" class="rounded-2xl shadow-2xl">
+                        <div class="absolute -bottom-6 -left-6 bg-white text-green-600 p-6 rounded-2xl shadow-lg">
+                            <div class="text-2xl font-bold">-12kg</div>
+                            <div class="text-sm">en 3 meses</div>
+                        </div>
+                        <div class="absolute -top-6 -right-6 bg-purple-600 text-white p-6 rounded-2xl shadow-lg">
+                            <div class="text-2xl font-bold">+30%</div>
+                            <div class="text-sm">energía</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">¿Por qué Elegir VitalFit?</h2>
+            <p class="text-xl text-center text-gray-600 mb-16">Nuestro enfoque integral te lleva al éxito</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center card-hover">
+                    <div class="feature-icon bg-green-100 text-green-600 mb-4">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Entrenamientos Personalizados</h3>
+                    <p class="text-gray-600">Programas diseñados según tu nivel, objetivos y disponibilidad. Desde principiantes hasta avanzados.</p>
+                </div>
+                
+                <div class="text-center card-hover">
+                    <div class="feature-icon bg-blue-100 text-blue-600 mb-4">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Plan de Alimentación</h3>
+                    <p class="text-gray-600">Dietas equilibradas y deliciosas creadas por nutricionistas. Recetas fáciles de preparar y adaptadas a tus gustos.</p>
+                </div>
+                
+                <div class="text-center card-hover">
+                    <div class="feature-icon bg-purple-100 text-purple-600 mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Seguimiento Continuo</h3>
+                    <p class="text-gray-600">Monitoreo constante de tu progreso con ajustes semanales basados en tus resultados y feedback.</p>
+                </div>
+                
+                <div class="text-center card-hover">
+                    <div class="feature-icon bg-orange-100 text-orange-600 mb-4">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Coaching Personal</h3>
+                    <p class="text-gray-600">Asesoría directa con entrenadores certificados. Soporte 24/7 para mantenerte motivado y enfocado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programas" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Nuestros Programas</h2>
+            <p class="text-xl text-center text-gray-600 mb-16">Encuentra el programa perfecto para tus metas</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-xl price-card">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6">
+                        <h3 class="text-2xl font-bold mb-2">Pérdida de Peso</h3>
+                        <p class="opacity-90">Transforma tu cuerpo y mente</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold text-gray-800 mb-4">₡50,000<span class="text-lg font-normal text-gray-600">/mes</span></div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Plan de entrenamiento personalizado</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Dieta semanal con recetas</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 2 sesiones de coaching mensuales</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Seguimiento de progreso semanal</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Acceso a la comunidad VitalFit</li>
+                        </ul>
+                        <button class="btn-primary w-full" onclick="openPaymentModal('Pérdida de Peso', 50000)">
+                            <i class="fas fa-shopping-cart mr-2"></i> Comprar Ahora
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-xl price-card border-4 border-yellow-400 relative">
+                    <div class="absolute top-0 right-0 bg-yellow-400 text-yellow-900 px-4 py-1 text-sm font-bold rounded-bl-lg">¡MÁS POPULAR!</div>
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6">
+                        <h3 class="text-2xl font-bold mb-2">Transformación Completa</h3>
+                        <p class="opacity-90">El paquete completo</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold text-gray-800 mb-4">₡85,000<span class="text-lg font-normal text-gray-600">/mes</span></div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Entrenamiento personalizado avanzado</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Dieta personalizada con ajustes semanales</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 4 sesiones de coaching mensuales</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Análisis corporal mensual</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Suplementación recomendada</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Plan de bienestar mental</li>
+                        </ul>
+                        <button class="btn-secondary w-full" onclick="openPaymentModal('Transformación Completa', 85000)">
+                            <i class="fas fa-star mr-2"></i> Elegir Este Plan
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-xl price-card">
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6">
+                        <h3 class="text-2xl font-bold mb-2">Mantenimiento</h3>
+                        <p class="opacity-90">Conserva tu forma ideal</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold text-gray-800 mb-4">₡35,000<span class="text-lg font-normal text-gray-600">/mes</span></div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Plan de entrenamiento mensual</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Guía nutricional básica</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 1 sesión de coaching mensual</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Ajustes mensuales del plan</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Acceso a biblioteca de recursos</li>
+                        </ul>
+                        <button class="btn-primary w-full" onclick="openPaymentModal('Mantenimiento', 35000)">
+                            <i class="fas fa-shopping-cart mr-2"></i> Comprar Ahora
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dietas -->
+    <section id="dietas" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Nuestros Planes de Alimentación</h2>
+            <p class="text-xl text-center text-gray-600 mb-16">Comida deliciosa que te ayuda a alcanzar tus metas</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Diet 1 -->
+                <div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://placehold.co/400x250/EF4444/FFFFFF?text=Dieta+Balanceada" alt="Dieta Balanceada" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Dieta Balanceada</h3>
+                        <p class="text-gray-600 mb-4">Perfecta para principiantes que buscan mejorar su alimentación y perder peso de forma saludable.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-green-600">₡25,000/mes</span>
+                            <button class="btn-primary text-sm py-2 px-4" onclick="openPaymentModal('Dieta Balanceada', 25000)">Más Info</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diet 2 -->
+                <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://placehold.co/400x250/10B981/FFFFFF?text=Dieta+Vegetariana" alt="Dieta Vegetariana" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Dieta Vegetariana</h3>
+                        <p class="text-gray-600 mb-4">Rica en proteínas vegetales, fibra y nutrientes esenciales. Ideal para deportistas y conscientes.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-green-600">₡30,000/mes</span>
+                            <button class="btn-primary text-sm py-2 px-4" onclick="openPaymentModal('Dieta Vegetariana', 30000)">Más Info</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diet 3 -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://placehold.co/400x250/8B5CF6/FFFFFF?text=Keto+Fit" alt="Keto Fit" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Keto Fit</h3>
+                        <p class="text-gray-600 mb-4">Baja en carbohidratos, alta en grasas saludables. Perfecta para quemar grasa y aumentar energía.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-green-600">₡35,000/mes</span>
+                            <button class="btn-primary text-sm py-2 px-4" onclick="openPaymentModal('Keto Fit', 35000)">Más Info</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diet 4 -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://placehold.co/400x250/06B6D4/FFFFFF?text=Proteína+Plus" alt="Proteína Plus" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Proteína Plus</h3>
+                        <p class="text-gray-600 mb-4">Alta en proteínas para construcción muscular y recuperación. Ideal para deportistas y fitness.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-green-600">₡32,000/mes</span>
+                            <button class="btn-primary text-sm py-2 px-4" onclick="openPaymentModal('Proteína Plus', 32000)">Más Info</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diet 5 -->
+                <div class="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://placehold.co/400x250/F59E0B/FFFFFF?text=Sin+Gluten" alt="Sin Gluten" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Sin Gluten</h3>
+                        <p class="text-gray-600 mb-4">Para personas con sensibilidad al gluten o que buscan una alimentación más ligera y digestiva.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-green-600">₡28,000/mes</span>
+                            <button class="btn-primary text-sm py-2 px-4" onclick="openPaymentModal('Sin Gluten', 28000)">Más Info</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diet 6 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-violet-50 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://placehold.co/400x250/6366F1/FFFFFF?text=Mediterránea" alt="Mediterránea" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Mediterránea</h3>
+                        <p class="text-gray-600 mb-4">Basada en los principios de la dieta mediterránea, rica en grasas saludables y antioxidantes.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-green-600">₡33,000/mes</span>
+                            <button class="btn-primary text-sm py-2 px-4" onclick="openPaymentModal('Mediterránea', 33000)">Más Info</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entrenamientos -->
+    <section id="entrenamientos" class="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Nuestros Entrenamientos</h2>
+            <p class="text-xl text-center text-gray-600 mb-16">Variedad de programas para todos los niveles</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-running text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Cardio Intenso</h3>
+                    <p class="text-gray-600 text-sm">Entrenamientos de alta intensidad para quemar grasa y mejorar tu condición cardiovascular.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-weightlifting text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Fuerza y Masa</h3>
+                    <p class="text-gray-600 text-sm">Programas de levantamiento de pesas para construir músculo y aumentar tu fuerza.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-dumbbell text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Funcional</h3>
+                    <p class="text-gray-600 text-sm">Ejercicios que mejoran tu movilidad, equilibrio y fuerza funcional para la vida diaria.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-person-walking text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">HIIT</h3>
+                    <p class="text-gray-600 text-sm">Entrenamientos de intervalos de alta intensidad para maximizar los resultados en menos tiempo.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white rounded-2xl p-8 shadow-xl">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">¿No sabes por dónde empezar?</h3>
+                        <p class="text-gray-600 mb-6">Nuestro test de evaluación te ayudará a determinar el programa perfecto para tus necesidades y objetivos.</p>
+                        <button class="btn-secondary" onclick="openPaymentModal('Test de Evaluación', 0)">
+                            <i class="fas fa-vial mr-2"></i> Tomar Test de Evaluación
+                        </button>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <img src="https://placehold.co/500x300/10B981/FFFFFF?text=Test+de+Evaluación" alt="Test de Evaluación" class="rounded-xl shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Lo que Nuestros Clientes Dicen</h2>
+            <p class="text-xl text-center text-gray-600 mb-16">Transformaciones reales, resultados comprobados</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonio 1 -->
+                <div class="testimonial-card bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/10B981/FFFFFF?text=MC" alt="María C." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">María C.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Había intentado muchas dietas antes, pero VitalFit fue la que realmente funcionó. Perdí 15kg en 4 meses y, lo más importante, aprendí a comer de forma saludable para siempre."</p>
+                    <div class="progress-ring bg-green-100 text-green-800">
+                        -15kg
+                    </div>
+                </div>
+                
+                <!-- Testimonio 2 -->
+                <div class="testimonial-card bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/06B6D4/FFFFFF?text=JP" alt="Juan P." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Juan P.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Como hombre de negocios con poco tiempo, necesitaba un programa eficiente. El plan de VitalFit me permitió ganar músculo y perder grasa al mismo tiempo, con solo 4 sesiones semanales de 45 minutos."</p>
+                    <div class="progress-ring bg-blue-100 text-blue-800">
+                        +8kg músculo
+                    </div>
+                </div>
+                
+                <!-- Testimonio 3 -->
+                <div class="testimonial-card bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/8B5CF6/FFFFFF?text=LC" alt="Laura C." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Laura C.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Después del embarazo, pensé que nunca recuperaría mi figura. Con el programa post-parto de VitalFit, no solo recuperé mi cuerpo, sino que me siento más fuerte y saludable que nunca."</p>
+                    <div class="progress-ring bg-purple-100 text-purple-800">
+                        100% recuperación
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20 bg-gradient-to-r from-green-600 to-emerald-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">¿Listo para Tu Transformación?</h2>
+            <p class="text-xl mb-8 opacity-90">Únete a miles de personas que ya han transformado su vida con VitalFit</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+                <button class="btn-primary text-lg py-4 px-8 flex items-center justify-center mx-auto sm:mx-0" onclick="openPaymentModal('Consulta Gratuita', 0)">
+                    <i class="fas fa-calendar-check mr-3"></i> Agendar Consulta Gratuita
+                </button>
+                <a href="https://wa.me/50661182233" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-green-600 transition duration-300 font-semibold text-lg mx-auto sm:mx-0 flex items-center justify-center">
+                    <i class="fas fa-phone-alt mr-3"></i> Llamar Ahora
+                </a>
+            </div>
+            
+            <div class="max-w-2xl mx-auto text-sm opacity-80">
+                <p><i class="fas fa-shield-alt mr-2"></i> Garantía de satisfacción de 30 días</p>
+                <p><i class="fas fa-undo mr-2"></i> Puedes cancelar en cualquier momento</p>
+                <p><i class="fas fa-headset mr-2"></i> Soporte 24/7 disponible</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="text-2xl mr-2">
+                            <i class="fas fa-heart-pulse text-green-500"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">VitalFit</h4>
+                    </div>
+                    <p class="mb-4">Tu aliado en el camino hacia una vida más saludable, fuerte y plena. Transformamos cuerpos y mentes.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="text-lg font-semibold text-white mb-4">Programas</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-green-500 transition duration-300">Pérdida de Peso</a></li>
+                        <li><a href="#" class="hover:text-green-500 transition duration-300">Ganancia de Músculo</a></li>
+                        <li><a href="#" class="hover:text-green-500 transition duration-300">Transformación Completa</a></li>
+                        <li><a href="#" class="hover:text-green-500 transition duration-300">Post-Parto</a></li>
+                        <li><a href="#" class="hover:text-green-500 transition duration-300">Adultos Mayores</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="text-lg font-semibold text-white mb-4">Recursos</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-green-500 transition duration-300">Blog de Salud</a></li>
+                        <li><a href="#" class="hover:text-green-500 transition duration-300">Recetas Saludables</a></li>
+                        <li><a href="#" class="hover:text-green-500 transition duration-300">Guías de Ejercicios</a></li>
+                        <li><a href="#" class="hover:text-green-500 transition duration-300">Webinars Gratuitos</a></li>
+                        <li><a href="#" class="hover:text-green-500 transition duration-300">Test de Evaluación</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="text-lg font-semibold text-white mb-4">Contacto</h5>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-green-500"></i>
+                            Avenida Fitness 123, San José
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-green-500"></i>
+                            <a href="tel:61182233" class="hover:text-green-500 transition duration-300">6118-2233</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-green-500"></i>
+                            <a href="mailto:hola@vitalfit.cr" class="hover:text-green-500 transition duration-300">hola@vitalfit.cr</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-wallet mr-2 text-green-500"></i>
+                            SINPE: 6083-7998
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-2 text-green-500"></i>
+                            Lunes-Sábado: 6:00-21:00
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>&copy; 2023 VitalFit. Todos los derechos reservados. Transformando vidas desde 2018.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/50661182233" class="floating-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Modal de Pago -->
+    <div id="payment-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800">Procesar Pago</h3>
+                    <button id="close-payment-modal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <div id="payment-steps">
+                    <!-- Step 1: Selección de método de pago -->
+                    <div id="step1" class="animate-fade-in">
+                        <h4 class="text-xl font-semibold mb-6">Selecciona tu método de pago</h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <!-- Tarjeta -->
+                            <div class="payment-method" data-method="tarjeta">
+                                <div class="payment-icon">
+                                    <i class="fas fa-credit-card text-4xl text-gray-600"></i>
+                                </div>
+                                <h5 class="font-semibold">Tarjeta</h5>
+                                <p class="text-sm text-gray-500">Visa, MasterCard, American Express</p>
+                            </div>
+                            
+                            <!-- SINPE -->
+                            <div class="payment-method" data-method="sinpe">
+                                <div class="payment-icon">
+                                    <i class="fas fa-mobile-alt text-4xl text-gray-600"></i>
+                                </div>
+                                <h5 class="font-semibold">SINPE Móvil</h5>
+                                <p class="text-sm text-gray-500">6083-7998</p>
+                            </div>
+                            
+                            <!-- Efectivo -->
+                            <div class="payment-method" data-method="efectivo">
+                                <div class="payment-icon">
+                                    <i class="fas fa-money-bill-wave text-4xl text-gray-600"></i>
+                                </div>
+                                <h5 class="font-semibold">Efectivo</h5>
+                                <p class="text-sm text-gray-500">En nuestras instalaciones</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                            <p class="text-sm text-blue-800">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Todos los pagos son seguros y protegidos. Tu información está cifrada y nunca será compartida.
+                            </p>
+                        </div>
+                        
+                        <button id="continue-to-info" class="btn-primary w-full py-3 text-lg">
+                            Continuar <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Step 2: Información del cliente -->
+                    <div id="step2" class="hidden">
+                        <h4 class="text-xl font-semibold mb-6">Información del Cliente</h4>
+                        
+                        <form id="payment-form">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+                                    <input type="text" name="name" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+                                    <input type="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+                                    <input type="tel" name="phone" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Edad</label>
+                                    <input type="number" name="age" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Dirección</label>
+                                <input type="text" name="address" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            
+                            <div class="flex justify-between">
+                                <button type="button" id="back-to-method" class="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-400 transition duration-300">
+                                    <i class="fas fa-arrow-left mr-2"></i> Atrás
+                                </button>
+                                <button type="button" id="continue-to-review" class="btn-primary py-3 px-6">
+                                    Continuar <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Step 3: Resumen del pedido -->
+                    <div id="step3" class="hidden">
+                        <h4 class="text-xl font-semibold mb-6">Resumen del Pedido</h4>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Producto:</span>
+                                <span id="order-product">-</span>
+                            </div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Precio:</span>
+                                <span id="order-price">₡0</span>
+                            </div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Método de Pago:</span>
+                                <span id="order-method">-</span>
+                            </div>
+                        </div>
+                        
+                        <div id="payment-instructions" class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg mb-6 hidden">
+                            <h5 class="font-semibold text-yellow-800 mb-2">Instrucciones de Pago SINPE:</h5>
+                            <p class="text-sm text-yellow-700 mb-2">1. Abre tu app de SINPE Móvil</p>
+                            <p class="text-sm text-yellow-700 mb-2">2. Envía ₡<span id="sinpe-amount">0</span> al número <strong>6083-7998</strong></p>
+                            <p class="text-sm text-yellow-700">3. En el campo de referencia escribe tu nombre completo</p>
+                            <p class="text-sm text-yellow-700 mt-2">Después de realizar el pago, envía el comprobante por WhatsApp al 6118-2233</p>
+                        </div>
+                        
+                        <div id="card-payment-form" class="space-y-4 mb-6 hidden">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Número de Tarjeta</label>
+                                <input type="text" placeholder="XXXX XXXX XXXX XXXX" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de Expiración</label>
+                                    <input type="text" placeholder="MM/AA" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">CVC</label>
+                                    <input type="text" placeholder="123" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Nombre en la Tarjeta</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button type="button" id="back-to-info" class="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-400 transition duration-300">
+                                <i class="fas fa-arrow-left mr-2"></i> Atrás
+                            </button>
+                            <button id="complete-payment" class="btn-primary py-3 px-6">
+                                <i class="fas fa-check mr-2"></i> Completar Pago
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Confirmación -->
+                    <div id="step4" class="hidden text-center">
+                        <div class="text-6xl text-green-500 mb-4">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">¡Pago Completado!</h4>
+                        <p class="text-gray-600 mb-6">Tu pedido ha sido procesado exitosamente. Pronto recibirás un correo con los detalles de tu programa.</p>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg mb-6">
+                            <p class="text-sm text-green-800">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Si pagaste por SINPE, por favor envía el comprobante al WhatsApp 6118-2233 para activar tu cuenta.
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <a href="https://wa.me/50661182233" class="flex items-center justify-center bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition duration-300">
+                                <i class="fab fa-whatsapp mr-2"></i> Enviar Comprobante por WhatsApp
+                            </a>
+                            <button id="close-confirmation" class="w-full bg-gray-300 text-gray-700 p-3 rounded-lg hover:bg-gray-400 transition duration-300">
+                                <i class="fas fa-home mr-2"></i> Volver al Inicio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let selectedProduct = '';
+        let selectedPrice = 0;
+        let selectedMethod = '';
+        
+        // Función para abrir el modal de pago
+        function openPaymentModal(product, price) {
+            selectedProduct = product;
+            selectedPrice = price;
+            
+            // Resetear el modal
+            document.getElementById('step1').classList.remove('hidden');
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.add('hidden');
+            document.getElementById('step4').classList.add('hidden');
+            
+            // Actualizar información del producto
+            document.getElementById('order-product').textContent = product;
+            document.getElementById('order-price').textContent = `₡${price.toLocaleString()}`;
+            document.getElementById('sinpe-amount').textContent = price.toLocaleString();
+            
+            // Mostrar u ocultar instrucciones según el método
+            if (selectedMethod === 'sinpe') {
+                document.getElementById('payment-instructions').classList.remove('hidden');
+                document.getElementById('card-payment-form').classList.add('hidden');
+            } else if (selectedMethod === 'tarjeta') {
+                document.getElementById('payment-instructions').classList.add('hidden');
+                document.getElementById('card-payment-form').classList.remove('hidden');
+            }
+            
+            // Mostrar el modal
+            document.getElementById('payment-modal').classList.remove('hidden');
+        }
+        
+        // Event Listeners para el modal de pago
+        document.getElementById('close-payment-modal').addEventListener('click', () => {
+            document.getElementById('payment-modal').classList.add('hidden');
+        });
+        
+        document.getElementById('payment-modal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('payment-modal')) {
+                document.getElementById('payment-modal').classList.add('hidden');
+            }
+        });
+        
+        // Selección de método de pago
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', () => {
+                // Remover selección anterior
+                document.querySelectorAll('.payment-method').forEach(m => {
+                    m.classList.remove('selected');
+                });
+                
+                // Agregar selección actual
+                method.classList.add('selected');
+                selectedMethod = method.getAttribute('data-method');
+                
+                // Actualizar el resumen
+                let methodName = '';
+                if (selectedMethod === 'tarjeta') methodName = 'Tarjeta de Crédito/Débito';
+                else if (selectedMethod === 'sinpe') methodName = 'SINPE Móvil';
+                else if (selectedMethod === 'efectivo') methodName = 'Efectivo';
+                
+                document.getElementById('order-method').textContent = methodName;
+            });
+        });
+        
+        // Navegación entre pasos
+        document.getElementById('continue-to-info').addEventListener('click', () => {
+            if (!selectedMethod) {
+                alert('Por favor selecciona un método de pago');
+                return;
+            }
+            
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        });
+        
+        document.getElementById('back-to-method').addEventListener('click', () => {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+        });
+        
+        document.getElementById('continue-to-review').addEventListener('click', () => {
+            const form = document.getElementById('payment-form');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.remove('hidden');
+            
+            // Actualizar el resumen con el método de pago
+            let methodName = '';
+            if (selectedMethod === 'tarjeta') methodName = 'Tarjeta de Crédito/Débito';
+            else if (selectedMethod === 'sinpe') methodName = 'SINPE Móvil';
+            else if (selectedMethod === 'efectivo') methodName = 'Efectivo';
+            
+            document.getElementById('order-method').textContent = methodName;
+            
+            // Mostrar u ocultar instrucciones según el método
+            if (selectedMethod === 'sinpe') {
+                document.getElementById('payment-instructions').classList.remove('hidden');
+                document.getElementById('card-payment-form').classList.add('hidden');
+            } else if (selectedMethod === 'tarjeta') {
+                document.getElementById('payment-instructions').classList.add('hidden');
+                document.getElementById('card-payment-form').classList.remove('hidden');
+            } else {
+                document.getElementById('payment-instructions').classList.add('hidden');
+                document.getElementById('card-payment-form').classList.add('hidden');
+            }
+        });
+        
+        document.getElementById('back-to-info').addEventListener('click', () => {
+            document.getElementById('step3').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        });
+        
+        document.getElementById('complete-payment').addEventListener('click', () => {
+            // Aquí iría la lógica de procesamiento del pago
+            // Para este ejemplo, simplemente mostramos la confirmación
+            
+            document.getElementById('step3').classList.add('hidden');
+            document.getElementById('step4').classList.remove('hidden');
+        });
+        
+        document.getElementById('close-confirmation').addEventListener('click', () => {
+            document.getElementById('payment-modal').classList.add('hidden');
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.card-hover, .price-card, .testimonial-card');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate-pop');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Add floating effect to buttons on scroll
+        window.addEventListener('scroll', () => {
+            const floatingButton = document.querySelector('.floating-button');
+            if (window.scrollY > 300) {
+                floatingButton.style.transform = 'scale(1) rotate(0deg)';
+            } else {
+                floatingButton.style.transform = 'scale(0.8) rotate(15deg)';
+            }
+        });
+    </script>
+</body>
+</html>
